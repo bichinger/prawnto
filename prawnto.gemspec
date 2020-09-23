@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "prawnto_2"
-  s.version = '0.3.0'
+  s.version = '0.3.1'
   s.author = ["Jobber", "Forrest Zeisler", "Nathan Youngman"]
   s.email = ["forrest@getjobber.com"]
   s.date = Time.now.utc.strftime("%Y-%m-%d")
@@ -19,6 +19,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.has_rdoc = true
   s.extra_rdoc_files = ["README.rdoc"]
 end
