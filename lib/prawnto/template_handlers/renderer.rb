@@ -45,20 +45,20 @@ module Prawnto
       end
 
       # This method is a little hacky with pushing the instance variables back. I would prefer to use bindings, but wasn't having much luck.
-      def method_missing(m, *args, &block)
+      def method_missing(m, ...)
         begin
           super
         rescue
           if pdf.respond_to?(m.to_s)
-            pdf.send(m, *args, &block)
+            pdf.send(m, ...)
           elsif @calling_object.respond_to?(m.to_s)
             push_instance_variables_to @calling_object
-            res = @calling_object.send(m, *args, &block)
+            res = @calling_object.send(m, ...)
             copy_instance_variables_from @calling_object
             res
           elsif @calling_object != @view_context and @view_context.respond_to?(m.to_s)
             push_instance_variables_to @view_context
-            res = @view_context.send(m, *args, &block)
+            res = @view_context.send(m, ...)
             copy_instance_variables_from @view_context
             res
           else
